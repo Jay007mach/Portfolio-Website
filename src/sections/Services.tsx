@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  Code2,
   Palette,
   Database,
   Terminal,

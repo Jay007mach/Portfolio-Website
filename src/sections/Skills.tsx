@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import {
   Database,
   Layout,
-  Server,
   Terminal,
   Cpu
 } from 'lucide-react';

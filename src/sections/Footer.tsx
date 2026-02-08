@@ -1,4 +1,4 @@
-import { Github, Linkedin, Instagram, Heart, ArrowUp, Code2 } from 'lucide-react';
+import { Github, Linkedin, Instagram, ArrowUp, Code2 } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {

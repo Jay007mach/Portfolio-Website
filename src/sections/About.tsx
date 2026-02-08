@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { BookOpen, Code, Lightbulb, Target, GraduationCap, Calendar, Camera } from 'lucide-react';
+import { BookOpen, Code, Lightbulb, Target, GraduationCap, Calendar } from 'lucide-react';
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
