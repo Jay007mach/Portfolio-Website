@@ -165,7 +165,7 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    /* Typewriter Effect */
+
     @keyframes typewriter {
       from {
         width: 0
@@ -193,12 +193,12 @@
       /* Fix vertical alignment */
     }
 
-    /* Dark Mode Typewriter Cursor */
+
     html.dark .typewriter {
       border-right-color: #FBFF48;
     }
 
-    /* Dark Mode Cursor */
+
     html.dark #cursor {
       background-color: #FBFF48;
       mix-blend-mode: difference;
@@ -206,7 +206,7 @@
 
 
 
-    /* Dark mode styles */
+
     .dark body,
     html.dark body {
       background-color: #0a0a0a;
@@ -279,21 +279,21 @@
       background: #FF9F1C;
     }
 
-    /* Better yellow highlight in dark mode */
+
     html.dark .bg-neo-yellow {
       background-color: #FBBF24 !important;
       /* Amber-400 */
       color: #000 !important;
     }
 
-    /* Better green highlight in dark mode */
+
     html.dark .bg-neo-green {
       background-color: #22c55e !important;
       /* Green-500 */
       color: #000 !important;
     }
 
-    /* Hero Floating Symbols Animation */
+
     @keyframes heroFloat {
 
       0%,
@@ -317,7 +317,7 @@
       user-select: none;
     }
 
-    /* Floating code symbols */
+
     .floating-symbol {
       position: fixed;
       pointer-events: none;
@@ -338,7 +338,7 @@
       color: #FF9F1C;
     }
 
-    /* Dark-mode-only brackets in profile card */
+
     .dark-bracket {
       opacity: 0;
       transition: opacity 0.4s ease;
@@ -348,12 +348,12 @@
       opacity: 1;
     }
 
-    /* Project card filter transition */
+
     .project-card {
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    /* Responsive fixes */
+
     @media (max-width: 640px) {
       .text-\[14vw\] {
         font-size: 12vw !important;
@@ -372,20 +372,20 @@
 
 <body class="text-neo-black font-display antialiased selection:bg-neo-yellow selection:text-neo-black">
 
-  <!-- CUSTOM CURSOR -->
+
   <div id="cursor" class="w-5 h-5 bg-neo-black rounded-full hidden lg:block"></div>
 
-  <!-- FLOATING CODE SYMBOLS -->
+
   <div id="floatingSymbols"></div>
 
-  <!-- SCROLL PROGRESS — horizontal bar on top -->
+  <!-- SCROLL PROGRESS -->
   <div class="fixed top-0 left-0 w-full h-1.5 z-[100] bg-transparent">
     <div class="h-full bg-neo-orange transition-all duration-150 ease-out" id="progressBar" style="width: 0%"></div>
   </div>
 
 
 
-  <!-- TOP HEADER BAR -->
+  <!-- HEADER -->
   <div
     class="fixed top-0 w-full z-40 px-6 py-3 flex justify-between items-center bg-neo-cream/80 backdrop-blur-sm border-b-2 border-black">
     <span class="font-display font-extrabold text-xl tracking-tight">JAY<span class="text-neo-orange">.</span>M</span>
@@ -409,12 +409,12 @@
     </div>
   </div>
 
-  <!-- ==================== HERO — SPLIT LAYOUT ==================== -->
+  <!-- HERO SECTION -->
   <section class="min-h-screen flex items-center px-4 md:px-12 pt-16 relative overflow-hidden">
 
 
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
-      <!-- Left: Text content (3 cols) -->
+
       <div class="lg:col-span-3 reveal-left">
         <div
           class="inline-flex items-center gap-2 bg-neo-black text-white px-4 py-2 font-mono text-sm font-bold mb-8 shadow-hard-sm">
@@ -453,7 +453,7 @@
           </a>
         </div>
 
-        <!-- Social row -->
+
         <div class="flex gap-4 mt-8">
           <a href="https://github.com/Jay007mach" target="_blank"
             class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-neo-black hover:text-white transition-all shadow-hard-sm cursor-hover">
@@ -470,7 +470,7 @@
         </div>
       </div>
 
-      <!-- Right: JSON Profile Card (2 cols) -->
+
       <div class="lg:col-span-2 reveal-right">
         <div
           class="bg-neo-black border-4 border-black shadow-hard-lg overflow-hidden rotate-1 hover:rotate-0 transition-transform duration-300">
@@ -508,7 +508,7 @@
     </div>
   </section>
 
-  <!-- ==================== MARQUEE — diagonal band ==================== -->
+  <!-- MARQUEE SECTION -->
   <div class="bg-neo-orange py-4 border-y-4 border-black -rotate-1 scale-105 relative z-10 my-4">
     <div class="marquee-container font-display font-extrabold text-3xl text-black uppercase">
       <div class="marquee-content">
@@ -519,10 +519,10 @@
     </div>
   </div>
 
-  <!-- ==================== ABOUT — asymmetric layout ==================== -->
+  <!-- ABOUT SECTION -->
   <section id="about" class="py-20 md:py-32 px-4 md:px-12 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <!-- Text side (7 cols) -->
+
       <div class="lg:col-span-7 order-2 lg:order-1 reveal-left">
         <span class="font-mono text-xs font-bold text-neo-orange bg-neo-black text-white px-3 py-1 inline-block mb-6">01
           // ABOUT</span>
@@ -545,7 +545,7 @@
           </p>
         </div>
 
-        <!-- Quick facts — horizontal cards instead of grid -->
+
         <div class="flex flex-wrap gap-3 mt-8">
           <div class="bg-white border-2 border-black px-5 py-3 shadow-hard-sm">
             <div class="font-mono text-[10px] text-gray-400 uppercase">Degree</div>
@@ -566,14 +566,14 @@
         </div>
       </div>
 
-      <!-- Image side (5 cols) — overlapping card style -->
+
       <div class="lg:col-span-5 order-1 lg:order-2 reveal-right relative">
         <div class="relative">
           <div class="aspect-[4/5] bg-gray-200 border-4 border-black shadow-hard-lg overflow-hidden">
             <img src="images/jay-profile.png" alt="Jay Machhi"
               class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
           </div>
-          <!-- Overlapping label -->
+
           <div
             class="absolute -bottom-4 -left-4 bg-neo-yellow border-3 border-black px-4 py-2 shadow-hard font-mono font-bold text-sm rotate-[-3deg]">
             📍 Gujarat, India
@@ -587,7 +587,7 @@
     </div>
   </section>
 
-  <!-- ==================== SKILLS — categorized pill groups ==================== -->
+  <!-- SKILLS SECTION -->
   <section id="skills"
     class="py-20 bg-neo-black text-white border-y-4 border-black relative overflow-hidden diagonal-top">
     <div class="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
@@ -603,7 +603,7 @@
           domain.</p>
       </div>
 
-      <!-- Categorized skills — pill layout, not uniform grid -->
+
       <div class="space-y-10">
         <div class="reveal">
           <h3 class="font-mono text-neo-orange text-sm font-bold mb-4 flex items-center gap-2">
@@ -688,7 +688,7 @@
     </div>
   </section>
 
-  <!-- ==================== EDUCATION — side-by-side cards ==================== -->
+  <!-- EDUCATION SECTION -->
   <section id="education" class="py-20 md:py-32 px-4 md:px-12 max-w-7xl mx-auto">
     <div class="mb-16 reveal">
       <span class="font-mono text-xs font-bold text-neo-orange bg-neo-black text-white px-3 py-1 inline-block mb-4">03
@@ -699,7 +699,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Card 1 -->
+
       <div
         class="reveal-left bg-white border-4 border-black p-8 shadow-hard-lg relative group hover:shadow-hard-xl transition-all">
         <div class="absolute top-0 left-0 w-full h-2 bg-neo-orange"></div>
@@ -720,7 +720,7 @@
             technologies</li>
         </ul>
       </div>
-      <!-- Card 2 -->
+
       <div
         class="reveal-right bg-white border-4 border-black p-8 shadow-hard-lg relative group hover:shadow-hard-xl transition-all md:mt-12">
         <div class="absolute top-0 left-0 w-full h-2 bg-neo-pink"></div>
@@ -896,7 +896,7 @@
     </div>
   </section>
 
-  <!-- ==================== INTERESTS — stacked rows ==================== -->
+  <!-- INTERESTS SECTION -->
   <section class="py-20 bg-neo-black border-t-4 border-black overflow-hidden relative diagonal-top">
     <div class="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
       <div class="mb-16 reveal">
@@ -906,7 +906,7 @@
         </h2>
       </div>
 
-      <!-- Horizontal scrolling interest cards -->
+
       <div class="space-y-4">
         <div class="reveal flex flex-col md:flex-row gap-4 items-stretch">
           <div
@@ -955,7 +955,7 @@
         </div>
       </div>
 
-      <!-- Internship CTA — inline banner -->
+
       <div class="mt-12 reveal border-2 border-neo-orange bg-black p-6 flex flex-col md:flex-row items-center gap-6">
         <i class="ri-rocket-2-fill text-4xl text-neo-orange"></i>
         <div class="flex-1 text-center md:text-left">
@@ -970,7 +970,7 @@
     </div>
   </section>
 
-  <!-- ==================== CONTACT — asymmetric layout ==================== -->
+  <!-- CONTACT SECTION -->
   <section id="contact" class="py-20 md:py-32 px-4 md:px-12 max-w-6xl mx-auto">
     <div class="reveal mb-12">
       <span class="font-mono text-xs font-bold text-neo-orange bg-neo-black text-white px-3 py-1 inline-block mb-4">06
@@ -981,7 +981,7 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
-      <!-- Info (2 cols) -->
+
       <div class="lg:col-span-2 reveal-left space-y-4">
         <a href="mailto:jayvmachhi2005@gmail.com"
           class="flex items-center gap-4 p-4 bg-white border-2 border-black shadow-hard-sm hover:shadow-hard transition-all group cursor-hover">
@@ -1027,7 +1027,7 @@
         </div>
       </div>
 
-      <!-- Form (3 cols) -->
+
       <div class="lg:col-span-3 reveal-right">
         <form id="contactForm" class="bg-white border-4 border-black p-8 shadow-hard-lg space-y-5">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -1056,7 +1056,7 @@
     </div>
   </section>
 
-  <!-- ==================== FOOTER — NeoBrutalist Style ==================== -->
+  <!-- FOOTER SECTION -->
   <footer class="bg-black text-white py-16 px-4 border-t-8 border-neo-orange font-mono relative overflow-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
       <div class="col-span-1 md:col-span-2">
@@ -1112,7 +1112,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <script>
-    // Dark Mode Logic
+    // Dark Mode
     function toggleDarkMode() {
       const html = document.documentElement;
       const icon = document.getElementById('darkModeIcon');
@@ -1127,15 +1127,15 @@
       }
     }
 
-    // Check saved theme
+
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
       document.getElementById('darkModeIcon').classList.replace('ri-moon-fill', 'ri-sun-fill');
     }
 
-    // Floating Code Symbols Logic REMOVED per user request
 
-    // Project Filter Function
+
+    // Project Filter
     function filterProjects(category) {
       const cards = document.querySelectorAll('.project-card');
       const buttons = document.querySelectorAll('.filter-btn');
@@ -1162,7 +1162,7 @@
       });
     }
 
-    // Custom Cursor — ring style instead of filled circle
+    // Custom Cursor
     const cursor = document.getElementById('cursor');
     document.addEventListener('mousemove', (e) => {
       cursor.style.left = e.clientX + 'px';
@@ -1188,7 +1188,7 @@
       });
     });
 
-    // Scroll Reveal (supports .reveal, .reveal-left, .reveal-right)
+    // Scroll Reveal
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('active');
@@ -1196,7 +1196,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
 
-    // Scroll Progress Bar — horizontal
+    // Scroll Progress
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
