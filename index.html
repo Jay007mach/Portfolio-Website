@@ -1,15 +1,1247 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Jay Machhi | IT Undergraduate & GATE Aspirant. Portfolio showcasing projects, skills, and academic journey.">
+  <meta name="author" content="Jay Machhi">
+  <title>JAY MACHHI | IT Undergraduate</title>
+  <meta name="theme-color" content="#121212">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700;800&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'neo-yellow': '#FBFF48',
+            'neo-pink': '#FF70A6',
+            'neo-blue': '#3B82F6',
+            'neo-green': '#33FF57',
+            'neo-purple': '#A855F7',
+            'neo-orange': '#FF9F1C',
+            'neo-red': '#FF2A2A',
+            'neo-white': '#FFFDF5',
+            'neo-black': '#121212',
+            'neo-cream': '#F5F0E8',
+          },
+          fontFamily: {
+            'display': ['"Syne"', 'sans-serif'],
+            'mono': ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'hard': '5px 5px 0px 0px #000',
+            'hard-sm': '3px 3px 0px 0px #000',
+            'hard-lg': '8px 8px 0px 0px #000',
+            'hard-xl': '12px 12px 0px 0px #000',
+            'hard-yellow': '6px 6px 0px 0px #FBFF48',
+            'hard-pink': '6px 6px 0px 0px #FF70A6',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      cursor: none;
+      background-color: #F5F0E8;
+      background-image: radial-gradient(circle, #d4cfc7 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    #cursor {
+      pointer-events: none;
+      position: fixed;
+      z-index: 9999;
+      transition: width 0.3s ease, height 0.3s ease, background-color 0.2s, border-radius 0.3s;
+    }
+
+    .marquee-container {
+      overflow: hidden;
+    }
+
+    .marquee-content {
+      display: flex;
+      animation: scroll 30s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-container:hover .marquee-content {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .text-stroke {
+      -webkit-text-stroke: 2px black;
+      color: transparent;
+    }
+
+    .diagonal-top {
+      clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .diagonal-bottom {
+      clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+    }
+
+    .skill-pill {
+      transition: all 0.15s ease;
+    }
+
+    .skill-pill:hover {
+      transform: translateY(-3px) rotate(-1deg);
+    }
+
+    .code-line {
+      line-height: 1.9;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(3deg);
+      }
+    }
+
+    .float-anim {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Typewriter Effect */
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 27ch
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #FBBF24;
+      font-family: 'JetBrains Mono', monospace;
+      animation: typewriter 2.5s steps(27) 1s forwards, blink 0.75s step-end infinite;
+      display: inline-block;
+      vertical-align: bottom;
+      /* Fix vertical alignment */
+    }
+
+    /* Dark Mode Typewriter Cursor */
+    html.dark .typewriter {
+      border-right-color: #FBFF48;
+    }
+
+    /* Dark Mode Cursor */
+    html.dark #cursor {
+      background-color: #FBFF48;
+      mix-blend-mode: difference;
+    }
+
+
+
+    /* Dark mode styles */
+    .dark body,
+    html.dark body {
+      background-color: #0a0a0a;
+      background-image: radial-gradient(circle, #222 1px, transparent 1px);
+    }
+
+    html.dark .bg-neo-cream {
+      background-color: #1a1a1a !important;
+    }
+
+    html.dark .bg-white {
+      background-color: #1e1e1e !important;
+    }
+
+    html.dark .text-neo-black {
+      color: #f0f0f0;
+    }
+
+    html.dark .text-gray-600 {
+      color: #a0a0a0 !important;
+    }
+
+    html.dark .text-gray-500 {
+      color: #999 !important;
+    }
+
+    html.dark .text-gray-400 {
+      color: #888 !important;
+    }
+
+    html.dark .text-black {
+      color: #f0f0f0;
+    }
+
+    html.dark .border-black {
+      border-color: #444 !important;
+    }
+
+    html.dark .bg-neo-cream\/80 {
+      background-color: rgba(26, 26, 26, 0.9) !important;
+    }
+
+    html.dark .shadow-hard {
+      box-shadow: 5px 5px 0px 0px #333;
+    }
+
+    html.dark .shadow-hard-sm {
+      box-shadow: 3px 3px 0px 0px #333;
+    }
+
+    html.dark .shadow-hard-lg {
+      box-shadow: 8px 8px 0px 0px #333;
+    }
+
+    .text-hero-adaptive {
+      color: #121212;
+      -webkit-text-stroke: 0;
+    }
+
+    html.dark .text-hero-adaptive {
+      color: transparent;
+      -webkit-text-stroke: 2px white;
+    }
+
+    html.dark .text-stroke {
+      -webkit-text-stroke-color: #fff !important;
+    }
+
+    html.dark .selection\:bg-neo-yellow::selection {
+      background: #FF9F1C;
+    }
+
+    /* Better yellow highlight in dark mode */
+    html.dark .bg-neo-yellow {
+      background-color: #FBBF24 !important;
+      /* Amber-400 */
+      color: #000 !important;
+    }
+
+    /* Better green highlight in dark mode */
+    html.dark .bg-neo-green {
+      background-color: #22c55e !important;
+      /* Green-500 */
+      color: #000 !important;
+    }
+
+    /* Hero Floating Symbols Animation */
+    @keyframes heroFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.2;
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(10deg);
+        opacity: 0.5;
+      }
+    }
+
+    .hero-symbol {
+      position: absolute;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: bold;
+      pointer-events: none;
+      animation: heroFloat infinite ease-in-out;
+      user-select: none;
+    }
+
+    /* Floating code symbols */
+    .floating-symbol {
+      position: fixed;
+      pointer-events: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: bold;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.6s ease, transform 2s ease;
+      user-select: none;
+    }
+
+    .floating-symbol.visible {
+      opacity: 0.08;
+    }
+
+    html.dark .floating-symbol.visible {
+      opacity: 0.12;
+      color: #FF9F1C;
+    }
+
+    /* Dark-mode-only brackets in profile card */
+    .dark-bracket {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    html.dark .dark-bracket {
+      opacity: 1;
+    }
+
+    /* Project card filter transition */
+    .project-card {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Responsive fixes */
+    @media (max-width: 640px) {
+      .text-\[14vw\] {
+        font-size: 12vw !important;
+      }
+
+      .text-5xl {
+        font-size: 2.5rem !important;
+      }
+
+      .text-6xl {
+        font-size: 3rem !important;
+      }
+    }
+  </style>
 </head>
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+<body class="text-neo-black font-display antialiased selection:bg-neo-yellow selection:text-neo-black">
+
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor" class="w-5 h-5 bg-neo-black rounded-full hidden lg:block"></div>
+
+  <!-- FLOATING CODE SYMBOLS -->
+  <div id="floatingSymbols"></div>
+
+  <!-- SCROLL PROGRESS — horizontal bar on top -->
+  <div class="fixed top-0 left-0 w-full h-1.5 z-[100] bg-transparent">
+    <div class="h-full bg-neo-orange transition-all duration-150 ease-out" id="progressBar" style="width: 0%"></div>
+  </div>
+
+
+
+  <!-- TOP HEADER BAR -->
+  <div
+    class="fixed top-0 w-full z-40 px-6 py-3 flex justify-between items-center bg-neo-cream/80 backdrop-blur-sm border-b-2 border-black">
+    <span class="font-display font-extrabold text-xl tracking-tight">JAY<span class="text-neo-orange">.</span>M</span>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#about"
+        class="font-mono text-xs font-bold text-gray-500 hover:text-black transition-colors cursor-hover">ABOUT</a>
+      <a href="#skills"
+        class="font-mono text-xs font-bold text-gray-500 hover:text-black transition-colors cursor-hover">SKILLS</a>
+      <a href="#projects"
+        class="font-mono text-xs font-bold text-gray-500 hover:text-black transition-colors cursor-hover">PROJECTS</a>
+      <a href="#contact"
+        class="font-mono text-xs font-bold text-gray-500 hover:text-black transition-colors cursor-hover">CONTACT</a>
+      <a href="Jay_Machhi_Resume.pdf" download
+        class="inline-flex items-center gap-2 bg-neo-orange text-black px-4 py-2 font-mono text-xs font-bold border-2 border-black shadow-hard-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all cursor-hover">
+        <i class="ri-download-2-line"></i> RESUME
+      </a>
+      <button id="darkModeToggle" onclick="toggleDarkMode()"
+        class="w-9 h-9 bg-neo-black text-white flex items-center justify-center border-2 border-black shadow-hard-sm hover:bg-neo-orange hover:text-black transition-all cursor-hover">
+        <i class="ri-moon-fill text-sm" id="darkModeIcon"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== HERO — SPLIT LAYOUT ==================== -->
+  <section class="min-h-screen flex items-center px-4 md:px-12 pt-16 relative overflow-hidden">
+
+
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
+      <!-- Left: Text content (3 cols) -->
+      <div class="lg:col-span-3 reveal-left">
+        <div
+          class="inline-flex items-center gap-2 bg-neo-black text-white px-4 py-2 font-mono text-sm font-bold mb-8 shadow-hard-sm">
+          <span class="w-2 h-2 bg-neo-green rounded-full animate-pulse"></span>
+          v2.0 — PORTFOLIO_ACTIVE
+        </div>
+
+        <h1 class="text-[14vw] lg:text-[7vw] leading-[0.85] font-extrabold uppercase tracking-tight mb-4">
+          Jay<br>
+          <span class="text-hero-adaptive">Machhi</span>
+        </h1>
+
+        <div class="font-mono text-lg md:text-xl text-neo-black dark:text-white mb-8 max-w-md">
+          <div class="typewriter font-bold">IT Third Year Undergraduate</div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-3 py-1 bg-neo-cream border-2 border-black font-mono text-xs font-bold shadow-hard-sm">GATE
+            ASPIRANT</span>
+          <span
+            class="px-3 py-1 bg-neo-cream border-2 border-black font-mono text-xs font-bold shadow-hard-sm">AI/ML</span>
+          <span class="px-3 py-1 bg-neo-cream border-2 border-black font-mono text-xs font-bold shadow-hard-sm">9.73
+            GPA</span>
+          <span class="px-3 py-1 bg-neo-cream border-2 border-black font-mono text-xs font-bold shadow-hard-sm">BRANCH
+            TOPPER</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#projects"
+            class="inline-flex items-center justify-center gap-2 bg-neo-black text-white border-2 border-black px-8 py-4 text-lg font-bold shadow-hard hover:bg-neo-orange hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
+            <i class="ri-folder-line"></i> VIEW PROJECTS
+          </a>
+          <a href="Jay_Machhi_Resume.pdf" download
+            class="inline-flex items-center justify-center gap-2 bg-neo-cream text-black border-2 border-black px-8 py-4 text-lg font-bold shadow-hard hover:bg-neo-pink hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
+            <i class="ri-download-2-line"></i> RESUME
+          </a>
+        </div>
+
+        <!-- Social row -->
+        <div class="flex gap-4 mt-8">
+          <a href="https://github.com/Jay007mach" target="_blank"
+            class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-neo-black hover:text-white transition-all shadow-hard-sm cursor-hover">
+            <i class="ri-github-fill text-lg"></i></a>
+          <a href="https://linkedin.com/in/jaymach17" target="_blank"
+            class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-neo-blue hover:text-white transition-all shadow-hard-sm cursor-hover">
+            <i class="ri-linkedin-fill text-lg"></i></a>
+          <a href="https://instagram.com/jaymach_17" target="_blank"
+            class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-neo-pink hover:text-white transition-all shadow-hard-sm cursor-hover">
+            <i class="ri-instagram-fill text-lg"></i></a>
+          <a href="mailto:jayvmachhi2005@gmail.com"
+            class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center hover:bg-neo-purple hover:text-white transition-all shadow-hard-sm cursor-hover">
+            <i class="ri-mail-fill text-lg"></i></a>
+        </div>
+      </div>
+
+      <!-- Right: JSON Profile Card (2 cols) -->
+      <div class="lg:col-span-2 reveal-right">
+        <div
+          class="bg-neo-black border-4 border-black shadow-hard-lg overflow-hidden rotate-1 hover:rotate-0 transition-transform duration-300">
+          <div class="bg-[#2d2d2d] px-4 py-3 flex items-center gap-2 border-b-2 border-black/50">
+            <div class="flex gap-2">
+              <div class="w-3 h-3 rounded-full bg-neo-red"></div>
+              <div class="w-3 h-3 rounded-full bg-neo-yellow"></div>
+              <div class="w-3 h-3 rounded-full bg-neo-green"></div>
+            </div>
+            <span class="ml-4 text-xs font-mono text-white/40">~/student-profile.js</span>
+          </div>
+          <div class="p-5 font-mono text-sm text-white relative">
+            <div class="text-white/40 code-line">// who am i?</div>
+            <div class="code-line"><span class="text-purple-400">const</span> <span class="text-neo-blue">student</span>
+              = {</div>
+            <div class="ml-4 code-line"><span class="text-neo-yellow">name</span>: <span class="text-green-400">'Jay
+                Machhi'</span>,</div>
+            <div class="ml-4 code-line"><span class="text-neo-yellow">year</span>: <span
+                class="text-neo-orange">3</span>,</div>
+            <div class="ml-4 code-line"><span class="text-neo-yellow">major</span>: <span
+                class="text-green-400">'Information Technology'</span>,</div>
+            <div class="ml-4 code-line"><span class="text-neo-yellow">focus</span>: <span class="text-green-400">'GATE
+                Preparation'</span>,</div>
+            <div class="ml-4 code-line"><span class="text-neo-yellow">interests</span>: [<span
+                class="text-green-400">'AI/ML'</span>],</div>
+            <div class="ml-4 code-line"><span class="text-neo-yellow">learning</span>: <span
+                class="text-green-400">'Data Mining & IoT'</span>,</div>
+            <div class="code-line">};</div>
+            <div class="mt-3 text-white/40 code-line">// let's build something.</div>
+            <div class="code-line"><span class="text-neo-blue">student</span>.<span
+                class="text-neo-yellow">helloWorld</span>();<span class="animate-pulse text-neo-orange">█</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MARQUEE — diagonal band ==================== -->
+  <div class="bg-neo-orange py-4 border-y-4 border-black -rotate-1 scale-105 relative z-10 my-4">
+    <div class="marquee-container font-display font-extrabold text-3xl text-black uppercase">
+      <div class="marquee-content">
+        &nbsp;★ OPEN FOR OPPORTUNITIES &nbsp;★ GATE ASPIRANT &nbsp;★ AI/ML ENTHUSIAST &nbsp;★ BRANCH TOPPER &nbsp;★
+        PROBLEM SOLVER &nbsp;★ OPEN FOR OPPORTUNITIES &nbsp;★ GATE ASPIRANT &nbsp;★ AI/ML ENTHUSIAST &nbsp;★ BRANCH
+        TOPPER &nbsp;★ PROBLEM SOLVER&nbsp;
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ABOUT — asymmetric layout ==================== -->
+  <section id="about" class="py-20 md:py-32 px-4 md:px-12 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Text side (7 cols) -->
+      <div class="lg:col-span-7 order-2 lg:order-1 reveal-left">
+        <span class="font-mono text-xs font-bold text-neo-orange bg-neo-black text-white px-3 py-1 inline-block mb-6">01
+          // ABOUT</span>
+        <h2 class="text-5xl md:text-7xl font-extrabold uppercase leading-[0.9] mb-8">
+          Who<br>am I<span class="text-neo-orange">?</span>
+        </h2>
+        <div class="space-y-4 font-mono text-gray-600 text-base leading-relaxed max-w-xl">
+          <p>
+            I'm <span class="font-bold text-black bg-neo-yellow px-1">Jay Machhi</span> — an IT undergraduate at
+            G H Patel College of Engineering & Technology, bringing the <span
+              class="font-bold text-black bg-neo-blue/30 px-1 border-b-2 border-neo-blue">discipline</span> from
+            competitive sports
+            and a relentless <span
+              class="font-bold text-black bg-neo-pink/30 px-1 border-b-2 border-neo-pink">passion</span> for
+            problem-solving into everything I build.
+          </p>
+          <p>
+            Currently focused on <span class="font-bold text-black border-b-2 border-neo-orange">GATE preparation</span>
+            and building strong CS fundamentals while exploring AI/ML and system design.
+          </p>
+        </div>
+
+        <!-- Quick facts — horizontal cards instead of grid -->
+        <div class="flex flex-wrap gap-3 mt-8">
+          <div class="bg-white border-2 border-black px-5 py-3 shadow-hard-sm">
+            <div class="font-mono text-[10px] text-gray-400 uppercase">Degree</div>
+            <div class="font-bold text-lg">B.Tech IT</div>
+          </div>
+          <div class="bg-white border-2 border-black px-5 py-3 shadow-hard-sm">
+            <div class="font-mono text-[10px] text-gray-400 uppercase">GPA</div>
+            <div class="font-bold text-lg">9.73<span class="text-gray-400">/10</span></div>
+          </div>
+          <div class="bg-white border-2 border-black px-5 py-3 shadow-hard-sm">
+            <div class="font-mono text-[10px] text-gray-400 uppercase">Graduation</div>
+            <div class="font-bold text-lg">2027</div>
+          </div>
+          <div class="bg-neo-green border-2 border-black px-5 py-3 shadow-hard-sm">
+            <div class="font-mono text-[10px] text-black/50 uppercase">Status</div>
+            <div class="font-bold text-lg">Open to Work</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image side (5 cols) — overlapping card style -->
+      <div class="lg:col-span-5 order-1 lg:order-2 reveal-right relative">
+        <div class="relative">
+          <div class="aspect-[4/5] bg-gray-200 border-4 border-black shadow-hard-lg overflow-hidden">
+            <img src="images/jay-profile.png" alt="Jay Machhi"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+          </div>
+          <!-- Overlapping label -->
+          <div
+            class="absolute -bottom-4 -left-4 bg-neo-yellow border-3 border-black px-4 py-2 shadow-hard font-mono font-bold text-sm rotate-[-3deg]">
+            📍 Gujarat, India
+          </div>
+          <div
+            class="absolute -top-3 -right-3 bg-neo-orange border-2 border-black px-3 py-1 font-mono text-xs font-bold rotate-[5deg]">
+            SEM 1-5 TOPPER
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS — categorized pill groups ==================== -->
+  <section id="skills"
+    class="py-20 bg-neo-black text-white border-y-4 border-black relative overflow-hidden diagonal-top">
+    <div class="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+        <div class="reveal">
+          <span class="font-mono text-xs font-bold text-neo-orange">02 // SKILLS</span>
+          <h2 class="text-5xl md:text-8xl font-extrabold uppercase tracking-tight text-white mt-2">
+            Tech<br class="hidden md:block"><span class="text-stroke"
+              style="-webkit-text-stroke-color: white;">Arsenal</span>
+          </h2>
+        </div>
+        <p class="font-mono text-gray-500 text-sm max-w-xs reveal">Tools & technologies I work with, organized by
+          domain.</p>
+      </div>
+
+      <!-- Categorized skills — pill layout, not uniform grid -->
+      <div class="space-y-10">
+        <div class="reveal">
+          <h3 class="font-mono text-neo-orange text-sm font-bold mb-4 flex items-center gap-2">
+            <span class="w-6 h-[2px] bg-neo-orange inline-block"></span> LANGUAGES
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="skill-pill bg-white text-black px-5 py-3 font-bold text-lg border-2 border-white shadow-hard-sm cursor-default">C</span>
+            <span
+              class="skill-pill bg-neo-purple text-white px-5 py-3 font-bold text-lg border-2 border-white shadow-hard-sm cursor-default">C++</span>
+            <span
+              class="skill-pill bg-neo-orange text-black px-5 py-3 font-bold text-lg border-2 border-white shadow-hard-sm cursor-default">Java</span>
+            <span
+              class="skill-pill bg-neo-blue text-white px-5 py-3 font-bold text-lg border-2 border-white shadow-hard-sm cursor-default">Python</span>
+            <span
+              class="skill-pill bg-neo-yellow text-black px-5 py-3 font-bold text-lg border-2 border-white shadow-hard-sm cursor-default">JavaScript</span>
+            <span
+              class="skill-pill bg-neo-pink text-black px-5 py-3 font-bold text-lg border-2 border-white shadow-hard-sm cursor-default">PHP</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 class="font-mono text-neo-green text-sm font-bold mb-4 flex items-center gap-2">
+            <span class="w-6 h-[2px] bg-neo-green inline-block"></span> WEB & FRAMEWORKS
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="skill-pill bg-neo-orange/20 text-white px-5 py-3 font-bold border-2 border-neo-orange/50 cursor-default">HTML5</span>
+            <span
+              class="skill-pill bg-neo-blue/20 text-white px-5 py-3 font-bold border-2 border-neo-blue/50 cursor-default">CSS3</span>
+            <span
+              class="skill-pill bg-white/10 text-white px-5 py-3 font-bold border-2 border-white/30 cursor-default">React</span>
+            <span
+              class="skill-pill bg-neo-green/20 text-white px-5 py-3 font-bold border-2 border-neo-green/50 cursor-default">Node.js</span>
+            <span
+              class="skill-pill bg-neo-purple/20 text-white px-5 py-3 font-bold border-2 border-neo-purple/50 cursor-default">Spring</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 class="font-mono text-neo-blue text-sm font-bold mb-4 flex items-center gap-2">
+            <span class="w-6 h-[2px] bg-neo-blue inline-block"></span> DATA & TOOLS
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="skill-pill bg-neo-blue/20 text-white px-5 py-3 font-bold border-2 border-neo-blue/50 cursor-default">MySQL</span>
+            <span
+              class="skill-pill bg-white/10 text-white px-5 py-3 font-bold border-2 border-white/30 cursor-default">PostgreSQL</span>
+            <span
+              class="skill-pill bg-neo-green/20 text-white px-5 py-3 font-bold border-2 border-neo-green/50 cursor-default">MongoDB</span>
+            <span
+              class="skill-pill bg-white/10 text-white px-5 py-3 font-bold border-2 border-white/30 cursor-default">Git</span>
+            <span
+              class="skill-pill bg-white/10 text-white px-5 py-3 font-bold border-2 border-white/30 cursor-default">GitHub</span>
+            <span
+              class="skill-pill bg-neo-orange/20 text-white px-5 py-3 font-bold border-2 border-neo-orange/50 cursor-default">Selenium</span>
+            <span
+              class="skill-pill bg-neo-red/20 text-white px-5 py-3 font-bold border-2 border-neo-red/50 cursor-default">Tomcat</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h3 class="font-mono text-neo-pink text-sm font-bold mb-4 flex items-center gap-2">
+            <span class="w-6 h-[2px] bg-neo-pink inline-block"></span> AI / ML
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="skill-pill bg-neo-pink/20 text-white px-5 py-3 font-bold border-2 border-neo-pink/50 cursor-default">TensorFlow</span>
+            <span
+              class="skill-pill bg-neo-yellow/20 text-white px-5 py-3 font-bold border-2 border-neo-yellow/50 cursor-default">PyTorch</span>
+            <span
+              class="skill-pill bg-neo-purple/20 text-white px-5 py-3 font-bold border-2 border-neo-purple/50 cursor-default">Keras</span>
+            <span
+              class="skill-pill bg-neo-orange/20 text-white px-5 py-3 font-bold border-2 border-neo-orange/50 cursor-default">Scikit-learn</span>
+            <span
+              class="skill-pill bg-neo-blue/20 text-white px-5 py-3 font-bold border-2 border-neo-blue/50 cursor-default">NumPy</span>
+            <span
+              class="skill-pill bg-neo-green/20 text-white px-5 py-3 font-bold border-2 border-neo-green/50 cursor-default">Pandas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EDUCATION — side-by-side cards ==================== -->
+  <section id="education" class="py-20 md:py-32 px-4 md:px-12 max-w-7xl mx-auto">
+    <div class="mb-16 reveal">
+      <span class="font-mono text-xs font-bold text-neo-orange bg-neo-black text-white px-3 py-1 inline-block mb-4">03
+        // EDUCATION</span>
+      <h2 class="text-5xl md:text-7xl font-extrabold uppercase leading-[0.9]">
+        Academic<br>Journey<span class="text-neo-orange">.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Card 1 -->
+      <div
+        class="reveal-left bg-white border-4 border-black p-8 shadow-hard-lg relative group hover:shadow-hard-xl transition-all">
+        <div class="absolute top-0 left-0 w-full h-2 bg-neo-orange"></div>
+        <div class="flex justify-between items-start mb-4">
+          <span class="font-mono text-xs font-bold bg-neo-black text-white px-2 py-1">2023 — 2027</span>
+          <span class="font-mono text-xs font-bold bg-neo-green text-black px-2 py-1 border border-black">GPA:
+            9.73</span>
+        </div>
+        <h3 class="text-2xl font-extrabold uppercase mb-2">B.Tech Information Technology</h3>
+        <p class="font-mono text-neo-orange font-bold mb-1">G H Patel College of Engineering & Technology</p>
+        <p class="font-mono text-xs text-gray-400 mb-4">📍 Anand, Gujarat</p>
+        <ul class="font-mono text-sm text-gray-600 space-y-2">
+          <li class="flex items-start gap-2"><span class="text-neo-orange mt-1">▸</span> Branch Topper — Semester 1, 2,
+            3, 4, 5</li>
+          <li class="flex items-start gap-2"><span class="text-neo-orange mt-1">▸</span> Focusing on GATE preparation &
+            database systems</li>
+          <li class="flex items-start gap-2"><span class="text-neo-orange mt-1">▸</span> Exploring AI/ML and web
+            technologies</li>
+        </ul>
+      </div>
+      <!-- Card 2 -->
+      <div
+        class="reveal-right bg-white border-4 border-black p-8 shadow-hard-lg relative group hover:shadow-hard-xl transition-all md:mt-12">
+        <div class="absolute top-0 left-0 w-full h-2 bg-neo-pink"></div>
+        <div class="flex justify-between items-start mb-4">
+          <span class="font-mono text-xs font-bold bg-neo-black text-white px-2 py-1">2008 — 2023</span>
+        </div>
+        <h3 class="text-2xl font-extrabold uppercase mb-2">Higher Secondary (Science)</h3>
+        <p class="font-mono text-neo-pink font-bold mb-1">Atul Vidyalaya</p>
+        <p class="font-mono text-xs text-gray-400 mb-4">📍 Atul, Gujarat</p>
+        <ul class="font-mono text-sm text-gray-600 space-y-2">
+          <li class="flex items-start gap-2"><span class="text-neo-pink mt-1">▸</span> School Topper in Physical
+            Education</li>
+          <li class="flex items-start gap-2"><span class="text-neo-pink mt-1">▸</span> State Level: Football, Swimming,
+            Basketball, Cricket</li>
+          <li class="flex items-start gap-2"><span class="text-neo-pink mt-1">▸</span> National Level Javelin Throw
+            (Maharashtra)</li>
+          <li class="flex items-start gap-2"><span class="text-neo-pink mt-1">▸</span> PCM major subjects</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GITHUB STATS ==================== -->
+  <section class="py-16 bg-neo-black text-white border-y-4 border-black relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 md:px-12 relative z-10">
+      <div class="reveal border-2 border-white/20 bg-black p-6 md:p-8">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+          <div class="flex items-center gap-3">
+            <i class="ri-github-fill text-2xl text-neo-green"></i>
+            <div>
+              <h4 class="text-lg font-extrabold text-white leading-tight">Jay007mach</h4>
+              <p class="text-[10px] font-mono text-neo-green uppercase tracking-widest">GitHub Profile</p>
+            </div>
+          </div>
+          <a href="https://github.com/Jay007mach" target="_blank"
+            class="font-mono text-xs font-bold text-neo-green border border-neo-green px-3 py-1 hover:bg-neo-green hover:text-black transition-all cursor-hover">
+            VIEW →
+          </a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          <div class="border border-white/10 p-3 text-center">
+            <div id="repos-count" class="text-2xl font-extrabold text-white">--</div>
+            <div class="text-[9px] font-mono text-gray-500 uppercase">Repos</div>
+          </div>
+          <div class="border border-white/10 p-3 text-center">
+            <div id="followers-count" class="text-2xl font-extrabold text-white">--</div>
+            <div class="text-[9px] font-mono text-gray-500 uppercase">Followers</div>
+          </div>
+          <div class="border border-white/10 p-3 text-center">
+            <div id="following-count" class="text-2xl font-extrabold text-white">--</div>
+            <div class="text-[9px] font-mono text-gray-500 uppercase">Following</div>
+          </div>
+          <div class="border border-white/10 p-3 text-center">
+            <div id="created-at" class="text-xl font-extrabold text-white">--</div>
+            <div class="text-[9px] font-mono text-gray-500 uppercase">Joined</div>
+          </div>
+        </div>
+        <div class="border border-white/10 p-2">
+          <img src="https://ghchart.rshah.org/FF9F1C/Jay007mach" alt="GitHub Contributions" class="w-full h-auto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS — staggered grid with filters ==================== -->
+  <section id="projects" class="py-24 bg-neo-yellow border-t-4 border-black px-4 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 reveal">
+        <span class="font-mono text-xs font-bold text-neo-orange bg-neo-black text-white px-3 py-1 inline-block mb-4">04
+          // PROJECTS</span>
+        <h2 class="text-6xl md:text-8xl font-extrabold uppercase tracking-tighter leading-[0.85]">
+          Selected<br><span class="text-stroke">Works</span>
+        </h2>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="flex flex-wrap gap-3 mb-12 reveal">
+        <button onclick="filterProjects('all')"
+          class="filter-btn active-filter px-5 py-2 font-mono font-bold text-sm border-2 border-black bg-neo-orange text-black shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all cursor-hover"
+          data-filter="all">ALL</button>
+        <button onclick="filterProjects('academic')"
+          class="filter-btn px-5 py-2 font-mono font-bold text-sm border-2 border-black bg-neo-black text-white shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all cursor-hover"
+          data-filter="academic">ACADEMIC</button>
+        <button onclick="filterProjects('personal')"
+          class="filter-btn px-5 py-2 font-mono font-bold text-sm border-2 border-black bg-neo-black text-white shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all cursor-hover"
+          data-filter="personal">PERSONAL</button>
+        <button onclick="filterProjects('featured')"
+          class="filter-btn px-5 py-2 font-mono font-bold text-sm border-2 border-black bg-neo-black text-white shadow-hard-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all cursor-hover"
+          data-filter="featured">★ FEATURED</button>
+      </div>
+
+      <!-- Staggered 2-col grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projectsGrid">
+        <article
+          class="reveal group bg-white dark:bg-neo-black border-4 border-black dark:border-white p-4 shadow-hard project-card"
+          data-category="academic featured">
+          <div
+            class="bg-black border-2 border-black aspect-video relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
+            <img src="images/project-1.jpg" alt="Image Caption Generator"
+              class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+          </div>
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="font-mono text-[10px] font-bold bg-neo-purple text-white px-2 py-0.5">ACADEMIC</span>
+                <span class="font-mono text-[10px] font-bold bg-neo-yellow text-black px-2 py-0.5 border border-black">★
+                  FEATURED</span>
+              </div>
+              <h3
+                class="text-3xl md:text-4xl font-extrabold uppercase mb-2 group-hover:text-neo-purple dark:text-white transition-colors">
+                Image Caption Generator</h3>
+              <p class="font-mono text-sm mb-4 max-w-xs text-gray-600 dark:text-gray-400">AI-based system generating
+                meaningful captions
+                using CNN feature extraction and LSTM sequence models.</p>
+              <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
+                <span class="bg-neo-black text-white px-2 py-1">Python</span>
+                <span class="bg-neo-black text-white px-2 py-1">TensorFlow</span>
+                <span class="bg-neo-black text-white px-2 py-1">Keras</span>
+                <span class="bg-neo-black text-white px-2 py-1">CNN</span>
+                <span class="bg-neo-black text-white px-2 py-1">LSTM</span>
+              </div>
+            </div>
+            <a href="https://github.com/Jay007mach/image-caption-generator" target="_blank"
+              class="w-12 h-12 border-2 border-black bg-neo-orange flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm flex-shrink-0">
+              <i class="ri-arrow-right-up-line text-2xl"></i>
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="reveal group bg-white dark:bg-neo-black border-4 border-black dark:border-white p-4 shadow-hard mt-0 md:mt-20 project-card"
+          data-category="personal featured">
+          <div
+            class="bg-black border-2 border-black aspect-video relative overflow-hidden mb-6 group-hover:shadow-none transition-all">
+            <img src="images/project-2.jpg" alt="Gamified Expense Manager"
+              class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+          </div>
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="font-mono text-[10px] font-bold bg-neo-green text-black px-2 py-0.5 border border-black">PERSONAL</span>
+                <span class="font-mono text-[10px] font-bold bg-neo-yellow text-black px-2 py-0.5 border border-black">★
+                  FEATURED</span>
+              </div>
+              <h3
+                class="text-3xl md:text-4xl font-extrabold uppercase mb-2 group-hover:text-neo-blue dark:text-white transition-colors">
+                Gamified Expense Manager</h3>
+              <p class="font-mono text-sm mb-4 max-w-xs text-gray-600 dark:text-gray-400">Gamified personal expense
+                management app with
+                Spring Framework, MVC architecture and database integration.</p>
+              <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
+                <span class="bg-neo-black text-white px-2 py-1">Java</span>
+                <span class="bg-neo-black text-white px-2 py-1">Spring</span>
+                <span class="bg-neo-black text-white px-2 py-1">PostgreSQL</span>
+                <span class="bg-neo-black text-white px-2 py-1">MVC</span>
+              </div>
+            </div>
+            <a href="https://github.com/Jay007mach/gamified-expense-manager" target="_blank"
+              class="w-12 h-12 border-2 border-black bg-neo-orange flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-hover shadow-hard-sm flex-shrink-0">
+              <i class="ri-arrow-right-up-line text-2xl"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-24 reveal">
+        <a href="https://github.com/Jay007mach?tab=repositories" target="_blank"
+          class="inline-block bg-neo-black text-white px-12 py-5 font-bold font-mono text-xl hover:bg-neo-cream hover:text-black border-4 border-black transition-all shadow-hard hover:shadow-none cursor-hover">
+          VIEW ALL REPOS ON GITHUB
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INTERESTS — stacked rows ==================== -->
+  <section class="py-20 bg-neo-black border-t-4 border-black overflow-hidden relative diagonal-top">
+    <div class="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
+      <div class="mb-16 reveal">
+        <span class="font-mono text-xs font-bold text-neo-pink">05 // EXPLORING</span>
+        <h2 class="text-5xl md:text-7xl font-extrabold uppercase text-white leading-[0.9] mt-2">
+          Areas I'm<br><span class="text-stroke" style="-webkit-text-stroke-color: white;">Exploring</span>
+        </h2>
+      </div>
+
+      <!-- Horizontal scrolling interest cards -->
+      <div class="space-y-4">
+        <div class="reveal flex flex-col md:flex-row gap-4 items-stretch">
+          <div
+            class="flex-1 border-2 border-white/15 p-6 bg-black/50 hover:border-neo-blue transition-all group flex items-start gap-4">
+            <div class="w-12 h-12 bg-neo-blue flex items-center justify-center flex-shrink-0 border border-white">
+              <i class="ri-cloud-line text-xl text-black"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold uppercase text-white mb-1">Cloud Computing</h3>
+              <p class="font-mono text-gray-500 text-xs">AWS Basics • Virtual Machines • Google Cloud</p>
+            </div>
+          </div>
+          <div
+            class="flex-1 border-2 border-white/15 p-6 bg-black/50 hover:border-neo-pink transition-all group flex items-start gap-4">
+            <div class="w-12 h-12 bg-neo-pink flex items-center justify-center flex-shrink-0 border border-white">
+              <i class="ri-palette-line text-xl text-black"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold uppercase text-white mb-1">UI/UX Design</h3>
+              <p class="font-mono text-gray-500 text-xs">Figma • Tailwind CSS • Adobe XD</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal flex flex-col md:flex-row gap-4 items-stretch">
+          <div
+            class="flex-1 border-2 border-white/15 p-6 bg-black/50 hover:border-neo-green transition-all group flex items-start gap-4">
+            <div class="w-12 h-12 bg-neo-green flex items-center justify-center flex-shrink-0 border border-white">
+              <i class="ri-database-2-line text-xl text-black"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold uppercase text-white mb-1">Data Mining</h3>
+              <p class="font-mono text-gray-500 text-xs">Data Preprocessing • Pattern Discovery • Knowledge Extraction
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex-1 border-2 border-white/15 p-6 bg-black/50 hover:border-neo-purple transition-all group flex items-start gap-4">
+            <div class="w-12 h-12 bg-neo-purple flex items-center justify-center flex-shrink-0 border border-white">
+              <i class="ri-terminal-box-line text-xl text-black"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-extrabold uppercase text-white mb-1">Problem Solving</h3>
+              <p class="font-mono text-gray-500 text-xs">Python • C++ • Java • DSA Practice</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internship CTA — inline banner -->
+      <div class="mt-12 reveal border-2 border-neo-orange bg-black p-6 flex flex-col md:flex-row items-center gap-6">
+        <i class="ri-rocket-2-fill text-4xl text-neo-orange"></i>
+        <div class="flex-1 text-center md:text-left">
+          <h4 class="text-lg font-extrabold uppercase text-white">Looking for Internship Opportunities</h4>
+          <p class="font-mono text-gray-500 text-xs mt-1">Eager to apply skills & learn from professionals.</p>
+        </div>
+        <a href="#contact"
+          class="bg-neo-orange text-black px-6 py-3 font-extrabold uppercase border-2 border-black shadow-hard-sm hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-hover whitespace-nowrap">
+          LET'S TALK
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT — asymmetric layout ==================== -->
+  <section id="contact" class="py-20 md:py-32 px-4 md:px-12 max-w-6xl mx-auto">
+    <div class="reveal mb-12">
+      <span class="font-mono text-xs font-bold text-neo-orange bg-neo-black text-white px-3 py-1 inline-block mb-4">06
+        // CONTACT</span>
+      <h2 class="text-5xl md:text-7xl font-extrabold uppercase leading-[0.9]">
+        Let's<br>Talk<span class="text-neo-orange">.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <!-- Info (2 cols) -->
+      <div class="lg:col-span-2 reveal-left space-y-4">
+        <a href="mailto:jayvmachhi2005@gmail.com"
+          class="flex items-center gap-4 p-4 bg-white border-2 border-black shadow-hard-sm hover:shadow-hard transition-all group cursor-hover">
+          <div
+            class="w-10 h-10 bg-neo-black text-white flex items-center justify-center group-hover:bg-neo-orange transition-colors">
+            <i class="ri-mail-line"></i>
+          </div>
+          <div class="font-mono text-sm font-bold group-hover:text-neo-orange transition-colors">
+            jayvmachhi2005@gmail.com</div>
+        </a>
+        <a href="tel:+916351662701"
+          class="flex items-center gap-4 p-4 bg-white border-2 border-black shadow-hard-sm hover:shadow-hard transition-all group cursor-hover">
+          <div
+            class="w-10 h-10 bg-neo-black text-white flex items-center justify-center group-hover:bg-neo-green transition-colors">
+            <i class="ri-phone-line"></i>
+          </div>
+          <div class="font-mono text-sm font-bold group-hover:text-neo-green transition-colors">+91 6351662701</div>
+        </a>
+        <a href="tel:+919428288939"
+          class="flex items-center gap-4 p-4 bg-white border-2 border-black shadow-hard-sm hover:shadow-hard transition-all group cursor-hover">
+          <div
+            class="w-10 h-10 bg-neo-black text-white flex items-center justify-center group-hover:bg-neo-green transition-colors">
+            <i class="ri-phone-line"></i>
+          </div>
+          <div class="font-mono text-sm font-bold group-hover:text-neo-green transition-colors">+91 9428288939</div>
+        </a>
+        <div class="flex items-center gap-4 p-4 bg-white border-2 border-black shadow-hard-sm">
+          <div class="w-10 h-10 bg-neo-black text-white flex items-center justify-center">
+            <i class="ri-map-pin-line"></i>
+          </div>
+          <div class="font-mono text-sm font-bold">Gujarat, India</div>
+        </div>
+        <div class="flex gap-3 mt-4">
+          <a href="https://github.com/Jay007mach" target="_blank"
+            class="w-11 h-11 bg-white border-2 border-black flex items-center justify-center hover:bg-neo-black hover:text-white shadow-hard-sm transition-all cursor-hover">
+            <i class="ri-github-fill text-lg"></i></a>
+          <a href="https://linkedin.com/in/jaymach17" target="_blank"
+            class="w-11 h-11 bg-white border-2 border-black flex items-center justify-center hover:bg-neo-blue hover:text-white shadow-hard-sm transition-all cursor-hover">
+            <i class="ri-linkedin-fill text-lg"></i></a>
+          <a href="https://instagram.com/jaymach_17" target="_blank"
+            class="w-11 h-11 bg-white border-2 border-black flex items-center justify-center hover:bg-neo-pink hover:text-white shadow-hard-sm transition-all cursor-hover">
+            <i class="ri-instagram-fill text-lg"></i></a>
+        </div>
+      </div>
+
+      <!-- Form (3 cols) -->
+      <div class="lg:col-span-3 reveal-right">
+        <form id="contactForm" class="bg-white border-4 border-black p-8 shadow-hard-lg space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="font-mono font-bold text-xs uppercase mb-1 block">Name</label>
+              <input type="text" name="name" placeholder="Jay Machhi" required
+                class="w-full bg-neo-cream border-2 border-black p-3 font-bold focus:outline-none focus:bg-neo-yellow transition-all">
+            </div>
+            <div>
+              <label class="font-mono font-bold text-xs uppercase mb-1 block">Email</label>
+              <input type="email" name="email" placeholder="you@example.com" required
+                class="w-full bg-neo-cream border-2 border-black p-3 font-bold focus:outline-none focus:bg-neo-yellow transition-all">
+            </div>
+          </div>
+          <div>
+            <label class="font-mono font-bold text-xs uppercase mb-1 block">Message</label>
+            <textarea rows="5" name="message" placeholder="Let's build something together..." required
+              class="w-full bg-neo-cream border-2 border-black p-3 font-bold focus:outline-none focus:bg-neo-yellow transition-all resize-none"></textarea>
+          </div>
+          <button type="submit"
+            class="w-full bg-neo-orange text-black font-extrabold text-xl py-4 border-2 border-black shadow-hard hover:bg-neo-black hover:text-white hover:shadow-none hover:translate-y-1 transition-all cursor-hover">
+            SEND MESSAGE →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER — NeoBrutalist Style ==================== -->
+  <footer class="bg-black text-white py-16 px-4 border-t-8 border-neo-orange font-mono relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+      <div class="col-span-1 md:col-span-2">
+        <h2 class="text-4xl font-extrabold mb-6 font-display">JAY MACHHI<span class="text-neo-orange">.</span></h2>
+        <p class="text-gray-400 max-w-sm">
+          Building for the future with raw aesthetics and real code. <span class="text-neo-blue">Discipline</span> from
+          sports, <span class="text-neo-pink">passion</span> for code.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-neo-orange mb-4 border-b border-gray-700 pb-2">SITEMAP</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#"
+              class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">Home</a></li>
+          <li><a href="#about"
+              class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">About</a></li>
+          <li><a href="#skills"
+              class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">Skills</a></li>
+          <li><a href="#projects"
+              class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">Works</a></li>
+          <li><a href="#contact"
+              class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-neo-orange mb-4 border-b border-gray-700 pb-2">SOCIALS</h3>
+        <div class="flex gap-4">
+          <a href="https://github.com/Jay007mach" target="_blank"
+            class="text-2xl hover:text-neo-yellow transition-colors cursor-hover"><i class="ri-github-fill"></i></a>
+          <a href="https://linkedin.com/in/jaymach17" target="_blank"
+            class="text-2xl hover:text-neo-purple transition-colors cursor-hover"><i class="ri-linkedin-fill"></i></a>
+          <a href="https://instagram.com/jaymach_17" target="_blank"
+            class="text-2xl hover:text-neo-pink transition-colors cursor-hover"><i class="ri-instagram-fill"></i></a>
+          <a href="mailto:jayvmachhi2005@gmail.com"
+            class="text-2xl hover:text-neo-blue transition-colors cursor-hover"><i class="ri-mail-fill"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-16 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+      <p>&copy; 2025 JAY.exe // SYSTEM_END</p>
+    </div>
+
+    <div
+      class="absolute bottom-0 left-0 w-full text-[20vw] font-extrabold text-white opacity-[0.03] leading-none select-none pointer-events-none text-center font-display">
+      MACHHI
+    </div>
+  </footer>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    // Dark Mode Logic
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const icon = document.getElementById('darkModeIcon');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.removeItem('theme');
+        icon.classList.replace('ri-sun-fill', 'ri-moon-fill');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        icon.classList.replace('ri-moon-fill', 'ri-sun-fill');
+      }
+    }
+
+    // Check saved theme
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      document.getElementById('darkModeIcon').classList.replace('ri-moon-fill', 'ri-sun-fill');
+    }
+
+    // Floating Code Symbols Logic REMOVED per user request
+
+    // Project Filter Function
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active-filter', 'bg-neo-orange', 'text-black');
+        btn.classList.add('bg-neo-black', 'text-white');
+      });
+      const activeBtn = document.querySelector(`[data-filter="${category}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('active-filter', 'bg-neo-orange', 'text-black');
+        activeBtn.classList.remove('bg-neo-black', 'text-white');
+      }
+      cards.forEach(card => {
+        const cats = card.dataset.category || '';
+        if (category === 'all' || cats.includes(category)) {
+          card.style.display = '';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => { card.style.display = 'none'; }, 300);
+        }
+      });
+    }
+
+    // Custom Cursor — ring style instead of filled circle
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      cursor.style.transform = 'translate(-50%, -50%)';
+    });
+    document.querySelectorAll('.cursor-hover, a, button, input, textarea').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '50px';
+        cursor.style.height = '50px';
+        cursor.style.backgroundColor = 'transparent';
+        cursor.style.border = '3px solid #FF9F1C';
+        cursor.style.borderRadius = '50%';
+        cursor.style.mixBlendMode = 'normal';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
+        cursor.style.backgroundColor = ''; // Revert to CSS (handles dark mode)
+        cursor.style.border = 'none';
+        cursor.style.borderRadius = '50%';
+        cursor.style.mixBlendMode = 'normal';
+      });
+    });
+
+    // Scroll Reveal (supports .reveal, .reveal-left, .reveal-right)
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+    // Scroll Progress Bar — horizontal
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById("progressBar").style.width = (winScroll / height) * 100 + "%";
+    });
+
+    // GitHub API
+    async function fetchGitHubStats() {
+      try {
+        const res = await fetch('https://api.github.com/users/Jay007mach');
+        if (!res.ok) throw new Error('API error');
+        const d = await res.json();
+        document.getElementById('repos-count').textContent = d.public_repos || '0';
+        document.getElementById('followers-count').textContent = d.followers || '0';
+        document.getElementById('following-count').textContent = d.following || '0';
+        if (d.created_at) {
+          document.getElementById('created-at').textContent = new Date(d.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+        }
+      } catch (e) { console.error('GitHub API error:', e); }
+    }
+    fetchGitHubStats();
+
+    // EmailJS Contact Form
+    emailjs.init('SFgr9n13NZzwhhPGn');
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const orig = btn.textContent;
+      btn.textContent = 'SENDING...';
+      btn.disabled = true;
+      emailjs.sendForm('service_rk3g38d', 'template_kfbvl6f', this)
+        .then(() => {
+          btn.textContent = '✓ SENT!';
+          btn.style.backgroundColor = '#33FF57';
+          btn.style.color = '#000';
+          document.getElementById('contactForm').reset();
+          setTimeout(() => { btn.textContent = orig; btn.style.backgroundColor = ''; btn.style.color = ''; btn.disabled = false; }, 3000);
+        }, () => {
+          btn.textContent = '✗ FAILED';
+          btn.style.backgroundColor = '#FF2A2A';
+          btn.style.color = '#fff';
+          setTimeout(() => { btn.textContent = orig; btn.style.backgroundColor = ''; btn.style.color = ''; btn.disabled = false; }, 3000);
+        });
+    });
+  </script>
 </body>
 
 </html>
