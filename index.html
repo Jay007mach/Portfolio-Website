@@ -388,7 +388,10 @@
   <!-- HEADER -->
   <div
     class="fixed top-0 w-full z-40 px-6 py-3 flex justify-between items-center bg-neo-cream/80 backdrop-blur-sm border-b-2 border-black">
-    <span class="font-display font-extrabold text-xl tracking-tight">JAY<span class="text-neo-orange">.</span>M</span>
+    <span class="font-display font-extrabold text-xl tracking-tight relative z-50">JAY<span
+        class="text-neo-orange">.</span>M</span>
+
+    <!-- Desktop Menu -->
     <div class="hidden md:flex items-center gap-6">
       <a href="#about"
         class="font-mono text-xs font-bold text-gray-500 hover:text-black transition-colors cursor-hover">ABOUT</a>
@@ -407,6 +410,44 @@
         <i class="ri-moon-fill text-sm" id="darkModeIcon"></i>
       </button>
     </div>
+
+    <!-- Mobile Menu Button -->
+    <button onclick="toggleMobileMenu()"
+      class="md:hidden relative z-50 w-10 h-10 flex flex-col justify-center gap-1.5 items-center bg-white border-2 border-black shadow-hard-sm cursor-hover">
+      <span id="ts-1" class="w-6 h-0.5 bg-black dark:bg-white transition-all duration-300"></span>
+      <span id="ts-2" class="w-6 h-0.5 bg-black dark:bg-white transition-all duration-300"></span>
+      <span id="ts-3" class="w-6 h-0.5 bg-black dark:bg-white transition-all duration-300"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu"
+    class="fixed inset-0 bg-neo-cream z-40 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300">
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle,#d4cfc7_1px,transparent_1px)] dark:bg-[radial-gradient(circle,#222_1px,transparent_1px)] bg-[length:30px_30px] opacity-50">
+    </div>
+
+    <nav class="flex flex-col gap-8 text-center relative z-10">
+      <a href="#about" onclick="toggleMobileMenu()"
+        class="font-display text-4xl font-extrabold uppercase hover:text-neo-orange transition-colors">About</a>
+      <a href="#skills" onclick="toggleMobileMenu()"
+        class="font-display text-4xl font-extrabold uppercase hover:text-neo-green transition-colors">Skills</a>
+      <a href="#projects" onclick="toggleMobileMenu()"
+        class="font-display text-4xl font-extrabold uppercase hover:text-neo-blue transition-colors">Projects</a>
+      <a href="#contact" onclick="toggleMobileMenu()"
+        class="font-display text-4xl font-extrabold uppercase hover:text-neo-pink transition-colors">Contact</a>
+
+      <div class="flex gap-4 justify-center mt-4">
+        <a href="Jay_Machhi_Resume.docx" download onclick="toggleMobileMenu()"
+          class="inline-flex items-center gap-2 bg-neo-orange text-black px-6 py-3 font-mono text-sm font-bold border-2 border-black shadow-hard hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+          <i class="ri-download-2-line"></i> RESUME
+        </a>
+        <button onclick="toggleDarkMode(); toggleMobileMenu()"
+          class="w-12 h-12 bg-neo-black text-white flex items-center justify-center border-2 border-black shadow-hard hover:bg-neo-orange hover:text-black transition-all">
+          <i class="ri-moon-fill text-lg" id="mobileDarkModeIcon"></i>
+        </button>
+      </div>
+    </nav>
   </div>
 
   <!-- HERO SECTION -->
@@ -447,7 +488,7 @@
             class="inline-flex items-center justify-center gap-2 bg-neo-black text-white border-2 border-black px-8 py-4 text-lg font-bold shadow-hard hover:bg-neo-orange hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
             <i class="ri-folder-line"></i> VIEW PROJECTS
           </a>
-          <a href="Jay_Machhi_Resume.pdf" download
+          <a href="Jay_Machhi_Resume.docx" download
             class="inline-flex items-center justify-center gap-2 bg-neo-cream text-black border-2 border-black px-8 py-4 text-lg font-bold shadow-hard hover:bg-neo-pink hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
             <i class="ri-download-2-line"></i> RESUME
           </a>
@@ -1116,14 +1157,18 @@
     function toggleDarkMode() {
       const html = document.documentElement;
       const icon = document.getElementById('darkModeIcon');
+      const mobileIcon = document.getElementById('mobileDarkModeIcon');
+
       if (html.classList.contains('dark')) {
         html.classList.remove('dark');
         localStorage.removeItem('theme');
         icon.classList.replace('ri-sun-fill', 'ri-moon-fill');
+        if (mobileIcon) mobileIcon.classList.replace('ri-sun-fill', 'ri-moon-fill');
       } else {
         html.classList.add('dark');
         localStorage.setItem('theme', 'dark');
         icon.classList.replace('ri-moon-fill', 'ri-sun-fill');
+        if (mobileIcon) mobileIcon.classList.replace('ri-moon-fill', 'ri-sun-fill');
       }
     }
 
@@ -1131,6 +1176,37 @@
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
       document.getElementById('darkModeIcon').classList.replace('ri-moon-fill', 'ri-sun-fill');
+      const mobileIcon = document.getElementById('mobileDarkModeIcon');
+      if (mobileIcon) mobileIcon.classList.replace('ri-moon-fill', 'ri-sun-fill');
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const s1 = document.getElementById('ts-1');
+      const s2 = document.getElementById('ts-2');
+      const s3 = document.getElementById('ts-3');
+      const body = document.body;
+
+      if (menu.classList.contains('opacity-0')) {
+        // Open Menu
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        body.style.overflow = 'hidden';
+
+        // Animate Hamburger to X
+        s1.style.transform = 'rotate(45deg) translate(5px, 6px)';
+        s2.style.opacity = '0';
+        s3.style.transform = 'rotate(-45deg) translate(5px, -6px)';
+      } else {
+        // Close Menu
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        body.style.overflow = 'auto';
+
+        // Animate X back to Hamburger
+        s1.style.transform = 'none';
+        s2.style.opacity = '1';
+        s3.style.transform = 'none';
+      }
     }
 
 
